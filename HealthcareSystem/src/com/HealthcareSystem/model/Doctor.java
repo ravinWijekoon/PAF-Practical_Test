@@ -251,6 +251,7 @@ public class Doctor {
 			System.err.println(e.getMessage());
 		}
 		return output;
+		//returns the output
 	}
 
 }
