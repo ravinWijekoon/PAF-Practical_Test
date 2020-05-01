@@ -52,7 +52,7 @@ public class DoctorsAPI extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//Collects the errors.
+			//Collects the errors
 		}
 	}
 
