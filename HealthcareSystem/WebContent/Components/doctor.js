@@ -25,11 +25,13 @@ $(document).on("click", "#btnSave", function(event)
 		return;
 	}
 	// If valid------------------------
-	var type = ($("#hidDoctor_IDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("hidDoctor_IDSave").val() == "") ? "POST" : "PUT";
+
 	
+	event.preventDefault();
 	$.ajax(
 			{
-			 url : "${pageContext.request.contextPath}/DoctorsAPI",
+			 url : "DoctorsAPI",
 			 type : type,
 			 data : $("#formDoctor").serialize(),
 			 dataType : "text",
@@ -91,14 +93,12 @@ $(document).on("click", ".btnRemove", function(event)
 	 
 		 $.ajax(
 		 {
-			 url : "DoctorsAPI",
-			 type : "DELETE",
+			 url : 'DoctorsAPI',
+			 type : 'DELETE',
 			 data : "doctor_id=" + $(this).data("doctorid"),
-			 dataType : "text",
+			 dataType : 'text',
 			 complete : function(response, status)
-			 {
-				 	onDoctorDeleteComplete(response.responseText, status);
-			 }
+			 {onDoctorDeleteComplete(response.responseText, status);}
 		 });
 		});
 
@@ -107,22 +107,22 @@ function onDoctorDeleteComplete(response, status)
 	if (status == "success")
 	{
 		var resultSet = JSON.parse(response);
-		if (resultSet.status.trim() == "success")
+		if(resultSet.status.trim() == "success")
 		{
 			$("#alertSuccess").text("Successfully deleted.");
 			$("#alertSuccess").show();
 			
 			$("#divDoctorGrid").html(resultSet.data);
-		} else if (resultSet.status.trim() == "error")
+		}else if (resultSet.status.trim() == "error")
 		{
 			$("#alertError").text(resultSet.data);
 			$("#alertError").show();
 		}
-	} else if (status == "error")
+	}else if (status == "error")
 	{
 		$("#alertError").text("Error while deleting.");
 		$("#alertError").show();
-	} else
+	}else
 	{
 		$("#alertError").text("Unknown error while deleting..");
 		$("#alertError").show();

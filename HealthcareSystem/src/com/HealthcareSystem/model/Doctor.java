@@ -76,7 +76,7 @@ public class Doctor {
 				String phone = rs.getString("phone");
 				// Add into the html table
 				
-				output += "<tr><td><input id='hidDoctorIDUpdate' name='hidDoctorIDUpdate' type='hidden' value='" + DoctorID + "'></td>";
+				output += "<tr><td><input id='hidDoctor_IDSave' name='hidDoctor_IDSave' type='hidden' value='" + DoctorID + "'></td>";
 				output += "<tr><td>" + Name + "</td>";
 				output += "<td>" + specialization + "</td>";
 				output += "<td>" + regNo + "</td>";
@@ -148,7 +148,7 @@ public class Doctor {
 			String newDoctors = readDoctors();
 			output = "{\"status\":\"success\", \"data\": \"" + newDoctors + "\"}";
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while deleteing doctor info.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while deleteing doctor info\"}";
 			System.err.println(e.getMessage());
 		}
 		return output;

@@ -45,9 +45,14 @@ public class DoctorsAPI extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	
-		String output = obj.insertDoctor(request.getParameter("doctor_name"), request.getParameter("specialization"), request.getParameter("regNo"), request.getParameter("address"), request.getParameter("phone"));
-		
-		response.getWriter().write(output);
+		try {
+			String output = obj.insertDoctor(request.getParameter("doctor_name"), request.getParameter("specialization"), request.getParameter("regNo"), request.getParameter("address"), request.getParameter("phone"));
+			
+			response.getWriter().write(output);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -57,9 +62,14 @@ public class DoctorsAPI extends HttpServlet {
 		
 		Map paras = getParasMap(request);
 		
-		String output = obj.updateDoctorDetails(paras.get("hidDoctor_IDSave").toString(), paras.get("doctor_name").toString(), paras.get("specialization").toString(), paras.get("regNo").toString(), paras.get("address").toString(), paras.get("phone").toString());
-		
-		response.getWriter().write(output);
+		try {
+			String output = obj.updateDoctorDetails(paras.get("hidDoctor_IDSave").toString(), paras.get("doctor_name").toString(), paras.get("specialization").toString(), paras.get("regNo").toString(), paras.get("address").toString(), paras.get("phone").toString());
+			
+			response.getWriter().write(output);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// TODO Auto-generated method stub
 	}
 
