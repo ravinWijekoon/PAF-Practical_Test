@@ -25,7 +25,7 @@ $(document).on("click", "#btnSave", function(event)
 		return;
 	}
 	// If valid------------------------
-	var type = ($("hidDoctor_IDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#hidDoctor_IDSave").val() == "") ? "POST" : "PUT";
 
 	
 	event.preventDefault();
@@ -77,7 +77,7 @@ function onDoctorSaveComplete(response, status)
 //UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event)
 {
-	$("#hidDoctor_IDSave").val($(this).closest("tr").find('#hidDoctorIDUpdate').val());
+	$("#hidDoctor_IDSave").val($(this).closest("tr").find('#hidDoctor_IDUpdate').val());
 	$("#doctor_name").val($(this).closest("tr").find('td:eq(0)').text());
 	$("#specialization").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#regNo").val($(this).closest("tr").find('td:eq(2)').text());

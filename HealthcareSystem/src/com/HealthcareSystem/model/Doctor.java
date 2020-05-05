@@ -62,7 +62,7 @@ public class Doctor {
 				return "Error while connecting to the database for reading.";
 			}
 			// Prepare the html table to be displayed
-			output = "<table border=\"1\"><tr><th>Doctor Name</th><th>Specialization</th><th>Registration No.</th><th>Address</th><th>Phone</th><th>Update</th><th>Delete</th></tr>";
+			output = "<table border=\'1\'><tr><th>Doctor Name</th><th>Specialization</th><th>Registration No.</th><th>Address</th><th>Phone</th><th>Update</th><th>Delete</th></tr>";
 			String query = "select * from doctor";
 			Statement stmt = (Statement) con.createStatement();
 			ResultSet rs = ((java.sql.Statement) stmt).executeQuery(query);
@@ -76,7 +76,7 @@ public class Doctor {
 				String phone = rs.getString("phone");
 				// Add into the html table
 				
-				output += "<tr><td><input id='hidDoctor_IDSave' name='hidDoctor_IDSave' type='hidden' value='" + DoctorID + "'></td>";
+				output += "<tr><td><input id='hidDoctor_IDUpdate' name='hidDoctor_IDUpdate' type='hidden' value='" + DoctorID + "'></td>";
 				output += "<tr><td>" + Name + "</td>";
 				output += "<td>" + specialization + "</td>";
 				output += "<td>" + regNo + "</td>";
